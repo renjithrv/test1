@@ -17,7 +17,7 @@ class Play_customer_Serializer(serializers.Serializer):
     play_preferred_monday = serializers.CharField(required=True, allow_blank=False, max_length=1)
     play_monday_fixture = serializers.CharField(required=True, allow_blank=False, max_length=4)
     play_preferred_tuesday = serializers.CharField(required=True, allow_blank=False, max_length=1)
-    play_tuesday_fixture = serializers.CharField(required=True, allow_blank=False, max_length=4)
+    wq = serializers.CharField(required=True, allow_blank=False, max_length=4)
     play_preferred_wednesday = serializers.CharField(required=True, allow_blank=False, max_length=1)
     play_wednesday_fixture = serializers.CharField(required=True, allow_blank=False, max_length=4)
     play_preferred_thursday = serializers.CharField(required=True, allow_blank=False, max_length=1)

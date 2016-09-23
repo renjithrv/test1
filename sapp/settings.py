@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'role.apps.RoleConfig',
     'theme.apps.ThemeConfig',
     'venue.apps.VenueConfig',
+    'corsheaders',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -59,6 +60,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'sapp.urls'
@@ -143,3 +145,31 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CORS_ORIGIN_ALLOW_ALL = True  # Default False
+CORS_ORIGIN_WHITELIST = (
+      'http://localhost:8100/',
+          )
+# CORS_ORIGIN_REGEX_WHITELIST = ('^http?://(\w+\.)?google\.com$', )
+CORS_ALLOW_METHODS = (
+      'GET',
+      'POST',
+      'PUT',
+      'PATCH',
+      'DELETE',
+      'OPTIONS'
+  )
+CORS_ALLOW_HEADERS = (
+      'x-requested-with',
+      'content-type',
+      'accept',
+      'origin',
+       'authorization',
+       'X-CSRFToken',
+       'session-key',
+       'page',
+   )
+# CORS_EXPOSE_HEADERS = ()
+# CORS_PREFLIGHT_MAX_AGE = 86400
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
