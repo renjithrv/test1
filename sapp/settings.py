@@ -38,16 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',  
-    'booking.apps.BookingConfig',
-    'buddy.apps.BuddyConfig',
-    'customer.apps.CustomerConfig',
-    'drill.apps.DrillConfig',
-    'fixture.apps.FixtureConfig',
-    'package.apps.PackageConfig',
-    'reminder.apps.ReminderConfig',
-    'role.apps.RoleConfig',
-    'theme.apps.ThemeConfig',
-    'venue.apps.VenueConfig',
+    'booking',
+    'buddy',
+    'customer',
+    'drill',
+    'fixture',
+    'package',
+    'reminder',
+    'role',
+    'theme',
+    'venue',
     'corsheaders',
 ]
 
@@ -102,8 +102,8 @@ DATABASES = {
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+     'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
     ]
 }
 
@@ -149,6 +149,7 @@ STATIC_URL = '/static/'
 CORS_ORIGIN_ALLOW_ALL = True  # Default False
 CORS_ORIGIN_WHITELIST = (
       'http://localhost:8100/',
+      'http://127.0.0.1:8000/',
           )
 # CORS_ORIGIN_REGEX_WHITELIST = ('^http?://(\w+\.)?google\.com$', )
 CORS_ALLOW_METHODS = (

@@ -17,70 +17,45 @@ Including another URLconf
 
 from django.conf.urls import url, include 
 from django.contrib import admin
-from customer.serializers import Play_customer_Serializer,Improve_customer_Serializer,Initial_customer_Serializer
-from fixture.serializers import Play_game_slot_details_Serializer,Improve_game_slot_details_Serializer
-from customer.models import Play_customer_profile,Improve_customer_profile,Initial_customer_profile
-from fixture.models import Play_game_slot_details,Improve_game_slot_details
 
-from rest_framework import routers, serializers, viewsets
+from customer.views import PlayViewSet,ImproveViewSet,InitialViewSet
+from fixture.views import PlaygameslotViewSet,ImprovegameslotViewSet
 
+from rest_framework import routers
 
 
 
-# ViewSets define the view behavior.
-class PlayViewSet(viewsets.ModelViewSet):
-    queryset = Play_customer_profile.objects.all()
-    serializer_class = Play_customer_Serializer
-
-    # ViewSets define the view behavior.
-class ImproveViewSet(viewsets.ModelViewSet):
-    queryset = Improve_customer_profile.objects.all()
-    serializer_class = Improve_customer_Serializer
-
-
-    # ViewSets define the view behavior.
-class InitialViewSet(viewsets.ModelViewSet):
-    queryset = Initial_customer_profile.objects.all()
-    serializer_class = Initial_customer_Serializer
 
 
 
-    # ViewSets define the view behavior.
-class PlaygameslotViewSet(viewsets.ModelViewSet):
-    queryset = Play_game_slot_details.objects.all()
-    serializer_class = Play_game_slot_details_Serializer
-
-
-        # ViewSets define the view behavior.
-class ImprovegameslotViewSet(viewsets.ModelViewSet):
-    queryset = Improve_customer_profile.objects.all()
-    serializer_class = Improve_game_slot_details_Serializer
 
 
 # Routers provide an easy way of automatically determining the URL conf.
 
 
-router = routers.DefaultRouter()
+# router = routers.DefaultRouter()
 
 
-router.register(r'playcustomer', PlayViewSet)
+# router.register(r'playcustomer', PlayViewSet)
 
-router.register(r'improvecustomer', ImproveViewSet)
+# router.register(r'improvecustomer', ImproveViewSet)
 
-router.register(r'initialcustomer', InitialViewSet)
+# router.register(r'initialcustomer', InitialViewSet)
 
-router.register(r'playgameslotdetails', PlaygameslotViewSet)
+# router.register(r'playgameslotdetails', PlaygameslotViewSet)
 
-router.register(r'improvegameslotdetails', ImprovegameslotViewSet)
+# router.register(r'improvegameslotdetails', ImprovegameslotViewSet)
 
 
 
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
+
+
 urlpatterns = [
-    url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+     url(r'^playgameslotdetails/', PlaygameslotViewSet, name='playgameslotdetails'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^fixture/', include('fixture.urls'))
 ]

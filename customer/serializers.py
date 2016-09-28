@@ -7,7 +7,7 @@ Play Customer Profile
 
 
 class Play_customer_Serializer(serializers.Serializer):
-   
+
     play_customer_name = serializers.CharField(required=True, allow_blank=True, max_length=100)
     play_customer_email = serializers.EmailField(required=True)
     play_mobile_number = serializers.IntegerField(required=True)

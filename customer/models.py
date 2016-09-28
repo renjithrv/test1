@@ -2,79 +2,46 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-# Create your models here.
-
-class Play_customer_profile(models.Model):
+class Customer(models.Model):
    created_at = models.DateTimeField(auto_now_add=True)
    updated_at = models.DateTimeField(auto_now=True)
-   play_customer_name = models.CharField(max_length=255)
-   play_customer_email = models.EmailField(max_length=255, blank=True, null=True)
-   play_mobile_number = models.CharField(max_length=10)
-   play_amount_paid = models.CharField(max_length=100)
-   play_membership_start_date = models.CharField(max_length=30)
-   play_membership_end_date = models.CharField(max_length=30)
-   play_preferred_monday = models.CharField(max_length=1)
-   play_monday_fixture = models.CharField(max_length=4)
-   play_preferred_tuesday = models.CharField(max_length=1)
-   play_tuesday_fixture = models.CharField(max_length=4)
-   play_preferred_wednesday = models.CharField(max_length=1)
-   play_wednesday_fixture = models.CharField(max_length=4)
-   play_preferred_thursday = models.CharField(max_length=1)
-   play_thursday_fixture = models.CharField(max_length=4)
-   play_preferred_friday = models.CharField(max_length=1)
-   play_friday_fixture = models.CharField(max_length=4)
-   play_preferred_saturday = models.CharField(max_length=1)
-   play_saturday_fixture = models.CharField(max_length=4)
-   play_preferred_sunday = models.CharField(max_length=1)
-   play_sunday_fixture = models.CharField(max_length=4)
-   play_preferred_position = models.CharField(max_length=30)
-   play_self_rating = models.CharField(max_length=30)
-   play_number_games_left = models.CharField(max_length=30)
-   play_flexi_flag = models.CharField(max_length=10)
-   play_batch_type = models.CharField(max_length=10)
-   play_preferred_venue = models.CharField(max_length=10)
-   play_about_me = models.CharField(max_length=10)
-   play_customer_picture = models.CharField(max_length=10)
+   name = models.CharField(max_length=100, null=False)
+   mobile = models.IntegerField(max_length=10, null=False)
+   email = models.EmailField(max_length=255, blank=True, null=True)
+  
+
+
+class Log(models.Model):
+   customer = models.ForeignKey(Customer)
+   created_at = models.DateTimeField(auto_now_add=True, null=False)
 
 
 
-class Improve_customer_profile(models.Model):
+class GamePreference(models.Model):
+   customer = models.ForeignKey(Customer)
+   gamedetails = models.ForeignKey(GameDetails)
+   logicalarea = models.ForeignKey(LogicalArea)
+   gameday = models.ForeignKey(GameDay)
+   fixture = models.ForeignKey(Fixture)
    created_at = models.DateTimeField(auto_now_add=True)
    updated_at = models.DateTimeField(auto_now=True)
-   improve_customer_name = models.CharField(max_length=255)
-   improve_customer_email = models.EmailField(max_length=255, blank=True, null=True)
-   improve_mobile_number = models.CharField(max_length=10)
-   improve_amount_paid = models.CharField(max_length=30)
-   improve_membership_start_date = models.CharField(max_length=30)
-   improve_membership_end_date = models.CharField(max_length=30)
-   improve_preferred_monday = models.CharField(max_length=1)
-   improve_monday_fixture = models.CharField(max_length=4)
-   improve_preferred_tuesday = models.CharField(max_length=1)
-   improve_tuesday_fixture = models.CharField(max_length=4)
-   improve_preferred_wednesday = models.CharField(max_length=1)
-   improve_wednesday_fixture = models.CharField(max_length=4)
-   improve_preferred_thursday = models.CharField(max_length=1)
-   improve_thursday_fixture = models.CharField(max_length=4)
-   improve_preferred_friday = models.CharField(max_length=1)
-   improve_friday_fixture = models.CharField(max_length=4)
-   improve_preferred_saturday = models.CharField(max_length=1)
-   improve_saturday_fixture = models.CharField(max_length=4)
-   improve_preferred_sunday = models.CharField(max_length=1)
-   improve_sunday_fixture = models.CharField(max_length=4)
-   improve_preferred_position = models.CharField(max_length=30)
-   improve_self_rating = models.CharField(max_length=30)
-   improve_number_games_left = models.CharField(max_length=30)
-   improve_flexi_flag = models.CharField(max_length=10)
-   improve_batch_type = models.CharField(max_length=10)
-   improve_preferred_venue = models.CharField(max_length=10)
-   improve_about_me = models.CharField(max_length=10)
-   improve_customer_picture = models.CharField(max_length=10)
-    
+   
 
-class Initial_customer_profile(models.Model):
-    customer_username = models.CharField(max_length=255)
-    customer_password = models.CharField(max_length=255)
-    customer_email = models.EmailField(max_length=255, blank=True, null=True)
-    customer_mobile_number = models.CharField(max_length=255)
-    play_customer_id = models.CharField(max_length=255)
-    improve_customer_id = models.CharField(max_length=255)
+
+class Subscription(models.Model):
+   customer = models.ForeignKey(Customer)
+   package = models.ForeignKey(Package)
+   created_at = models.DateTimeField(auto_now_add=True, null=False)
+   updated_at = models.DateTimeField(auto_now=True, null=False)
+   startdate = models.DateField(max_length=255, null=False)
+   enddate = models.DateField(max_length=255, null=False)
+   sessionsleft = models.IntegerField()
+   flexiflag = models.BooleanField(default=False)
+  
+
+
+class GameLevel(models.Model):
+   customer = models.ForeignKey(Customer)
+   gamedetail = models.ForeignKey(GameDetails)
+   created_at = models.DateTimeField(auto_now_add=True, null=False)
+   updated_at = models.DateTimeField(auto_now=True, null=False)
