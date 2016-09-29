@@ -2,16 +2,23 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from booking.models import Log
+from buddy.models import Buddy
+from package.models import Package
+from gameinfo.models import Details,Day,Type,Level
+from area.models import LogicalArea
+from venue.models import VenueDetails,VenueGamesAvailable
+
 
 # Fixture model for details about the fixture.
 class Fixture(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    gamedetails = models.ForeignKey(GameDetails)
-    venue = models.ForeignKey(Venue)
-    gametype = models.ForeignKey(GameType)
+    gamedetails = models.ForeignKey(Details)
+    venue = models.ForeignKey(VenueDetails)
+    gametype = models.ForeignKey(Type)
     level = models.ForeignKey(Level)
-    gameday = models.ForeignKey(GameDay)
+    gameday = models.ForeignKey(Day)
     gametime = models.TimeField(auto_now=False)
     courtname = models.CharField(max_length=50)
     maxplayers = models.IntegerField()
@@ -23,7 +30,7 @@ class Fixture(models.Model):
     is_deleted = models.BooleanField()
 
 
-class Log(models.Model):
+class BuddyAudit(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     fixture = models.ForeignKey(Fixture)
     buddy = models.ForeignKey(Buddy)
@@ -44,7 +51,7 @@ class AssignedBuddy(models.Model):
 class AssignedBuddyLog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    bookingid = models.ForeignKey(Booking.Log)
+    bookingid = models.ForeignKey(Log)
     fixture = models.ForeignKey(Fixture)
     buddy = models.ForeignKey(Buddy)
     teamname = models.CharField(max_length=50)
@@ -53,7 +60,7 @@ class AssignedBuddyLog(models.Model):
 class BuddyRating(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    bookingid = models.ForeignKey(Booking.Log)
+    bookingid = models.ForeignKey(Log)
     sessionrating = models.IntegerField()
     timemanagement = models.BooleanField()
     warmup = models.BooleanField()

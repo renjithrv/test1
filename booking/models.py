@@ -2,6 +2,12 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from customer.models import Customer
+from gameinfo.models import GameDetails
+from fixture.models import Fixture
+
+
+
 # Create your models here.
 
 class Log(models.Model):
@@ -25,7 +31,7 @@ class Log(models.Model):
 
 
 class FootballPlayProgress(models.Model):
-   bookinglog = models.ForeignKey('BookingLog')
+   bookinglog = models.ForeignKey(Log)
    created_at = models.DateTimeField(auto_now_add=True, null=False)
    updated_at = models.DateTimeField(auto_now=True, null=False)
    gameweek = models.IntegerField()
@@ -59,7 +65,7 @@ class FootballImproveProgress(models.Model):
       (GOOD, 'Good'),
       (EXCELLENT, 'Excellent')
     )
-   bookinglog = models.ForeignKey('BookingLog')
+   bookinglog = models.ForeignKey(Log)
    created_at = models.DateTimeField(auto_now_add=True, null=False)
    updated_at = models.DateTimeField(auto_now=True, null=False)
    gameweek = models.IntegerField()

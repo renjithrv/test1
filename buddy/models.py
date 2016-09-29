@@ -4,6 +4,7 @@ from django.db import models
 from gameinfo.models import GameDetails
 
 
+
 class Buddy(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

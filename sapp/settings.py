@@ -30,26 +30,26 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = {
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',  
+    'rest_framework',
+    'area',
     'booking',
     'buddy',
     'customer',
     'drill',
     'fixture',
+    'gameinfo',
     'package',
-    'reminder',
-    'role',
     'theme',
     'venue',
     'corsheaders',
-]
+}
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

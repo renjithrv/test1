@@ -2,6 +2,15 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from package.models import Package
+from gameinfo.models import Details,Day,Level
+from fixture.models import Fixture
+from area.models import LogicalArea
+
+
+
+
+
 class Customer(models.Model):
    created_at = models.DateTimeField(auto_now_add=True)
    updated_at = models.DateTimeField(auto_now=True)
@@ -11,7 +20,7 @@ class Customer(models.Model):
   
 
 
-class Log(models.Model):
+class CustomerLog(models.Model):
    customer = models.ForeignKey(Customer)
    created_at = models.DateTimeField(auto_now_add=True, null=False)
 
@@ -19,9 +28,9 @@ class Log(models.Model):
 
 class GamePreference(models.Model):
    customer = models.ForeignKey(Customer)
-   gamedetails = models.ForeignKey(GameDetails)
+   gamedetails = models.ForeignKey(Details)
    logicalarea = models.ForeignKey(LogicalArea)
-   gameday = models.ForeignKey(GameDay)
+   gameday = models.ForeignKey(Day)
    fixture = models.ForeignKey(Fixture)
    created_at = models.DateTimeField(auto_now_add=True)
    updated_at = models.DateTimeField(auto_now=True)
@@ -42,6 +51,7 @@ class Subscription(models.Model):
 
 class GameLevel(models.Model):
    customer = models.ForeignKey(Customer)
-   gamedetail = models.ForeignKey(GameDetails)
+   gamedetail = models.ForeignKey(Details)
+   gamelevel = models.ForeignKey(Level)
    created_at = models.DateTimeField(auto_now_add=True, null=False)
    updated_at = models.DateTimeField(auto_now=True, null=False)
