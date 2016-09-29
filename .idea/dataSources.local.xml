@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Django default" uuid="c32b9ce1-d04d-4087-8eb6-8ea68ee9126b">
+      <database-info product="PostgreSQL" version="9.5.3" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>shooduser</user-name>
+      <user-password>dfdadfcbdfd9dfd9dfdddfc5dfd8dfce</user-password>
+      <introspection-scope>sporthood_test:public,pg_catalog,shooduser</introspection-scope>
+      <resolve-scope>sporthood_test:public,shooduser</resolve-scope>
+    </data-source>
+    <data-source name="Django default2" uuid="43b1e068-fbdc-49d5-b866-9e70a3678dbf">
+      <database-info product="PostgreSQL" version="9.5.3" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>shooduser</user-name>
+      <user-password>dfdadfcbdfd9dfd9dfdddfc5dfd8dfce</user-password>
+      <introspection-scope>sporthood_test:public,pg_catalog,shooduser</introspection-scope>
+      <resolve-scope>sporthood_test:public,shooduser</resolve-scope>
+    </data-source>
+  </component>
+</project>
