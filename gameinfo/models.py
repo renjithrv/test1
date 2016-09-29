@@ -1,22 +1,22 @@
 from django.db import models
 
 # Create your models here.
-class Details(models.Model):
+class GameDetails(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     gamename = models.CharField(max_length=100)
 
-class Type (models.Model):
+class GameType (models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     typename = models.CharField(max_length=100)
-    gamedetails = models.ForeignKey(Details)
+    gamedetails = models.ForeignKey(GameDetails)
 
 class Level(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     levelname = models.CharField(max_length=100)
-    gamedetails = models.ForeignKey(Details)
+    gamedetails = models.ForeignKey(GameDetails)
 
 class Day(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)

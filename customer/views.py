@@ -2,24 +2,47 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from customer.models import Play_customer_profile,Improve_customer_profile,Initial_customer_profile
-from customer.serializers import Play_customer_Serializer,Improve_customer_Serializer,Initial_customer_Serializer
+from customer.models import Customer,CustomerLog,GamePreference,Subscription,GameLevel
+from customer.serializers import CustomerSerializer,CustomerLogSerializer,GamePreferenceSerializer,SubscriptionSerializer,GameLevelSerializer
+
 
 
 from rest_framework import serializers, viewsets
 
 # ViewSets define the view behavior.
-class PlayViewSet(viewsets.ModelViewSet):
-    queryset = Play_customer_profile.objects.all()
-    serializer_class = Play_customer_Serializer
-
-    # ViewSets define the view behavior.
-class ImproveViewSet(viewsets.ModelViewSet):
-    queryset = Improve_customer_profile.objects.all()
-    serializer_class = Improve_customer_Serializer
+class CustomerViewSet(viewsets.ModelViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
 
 
-    # ViewSets define the view behavior.
-class InitialViewSet(viewsets.ModelViewSet):
-    queryset = Initial_customer_profile.objects.all()
-    serializer_class = Initial_customer_Serializer
+
+# ViewSets define the view behavior.
+class CustomerLogViewSet(viewsets.ModelViewSet):
+    queryset = CustomerLog.objects.all()
+    serializer_class = CustomerLogSerializer
+
+
+# ViewSets define the view behavior.
+class GamePreferenceViewSet(viewsets.ModelViewSet):
+    queryset = GamePreference.objects.all()
+    serializer_class = GamePreferenceSerializer
+
+
+
+# ViewSets define the view behavior.
+class SubscriptionViewSet(viewsets.ModelViewSet):
+    queryset = Subscription.objects.all()
+    serializer_class = SubscriptionSerializer
+
+
+# ViewSets define the view behavior.
+class GameLevelViewSet(viewsets.ModelViewSet):
+    queryset = GameLevel.objects.all()
+    serializer_class = GameLevelSerializer
+
+
+
+
+
+
+

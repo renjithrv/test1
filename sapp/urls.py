@@ -18,13 +18,17 @@ Including another URLconf
 from django.conf.urls import url, include 
 from django.contrib import admin
 
-from customer.views import PlayViewSet,ImproveViewSet,InitialViewSet
-from fixture.views import PlaygameslotViewSet,ImprovegameslotViewSet
+from area.views import AreaViewSet
+from booking.views import LogViewSet,FootballPlayProgressViewSet,FootballImproveProgressViewSet
+from buddy.views import BuddyViewSet,RoleViewSet
+from customer.views import CustomerViewSet,CustomerLogViewSet,GamePreferenceViewSet,SubscriptionViewSet,GameLevelViewSet
+from fixture.views import FixtureViewSet,BuddyAuditViewSet,AssignedBuddyViewSet,AssignedBuddyLogViewSet,BuddyRatingViewSet
+from gameinfo.views import DetailsViewSet,TypeViewSet,LevelViewSet,DayViewSet
+from package.views import PackageViewSet
+from venue.views import VenueDetailsViewSet,VenueGamesAvailableViewSet
+
 
 from rest_framework import routers
-
-
-
 
 
 
@@ -33,18 +37,63 @@ from rest_framework import routers
 # Routers provide an easy way of automatically determining the URL conf.
 
 
-# router = routers.DefaultRouter()
+router = routers.DefaultRouter()
+
+#Area Router
+router.register(r'area', AreaViewSet)
 
 
-# router.register(r'playcustomer', PlayViewSet)
+#Booking Router
 
-# router.register(r'improvecustomer', ImproveViewSet)
+router.register(r'log', LogViewSet)
+router.register(r'footballplay', FootballPlayProgressViewSet)
+router.register(r'footballimprove', FootballImproveProgressViewSet)
 
-# router.register(r'initialcustomer', InitialViewSet)
 
-# router.register(r'playgameslotdetails', PlaygameslotViewSet)
+#Buddy Router
 
-# router.register(r'improvegameslotdetails', ImprovegameslotViewSet)
+router.register(r'buddy', BuddyViewSet)
+router.register(r'role', RoleViewSet)
+
+
+
+#Customer Router
+
+router.register(r'customer', CustomerViewSet)
+router.register(r'customerlog', CustomerLogViewSet)
+router.register(r'customerpreference', GamePreferenceViewSet)
+router.register(r'customersubscription', SubscriptionViewSet)
+router.register(r'customergamelevel', GameLevelViewSet)
+
+
+
+#Fixture Router
+
+
+router.register(r'fixture', FixtureViewSet)
+router.register(r'buddyaudit', BuddyAuditViewSet)
+router.register(r'assignedbuddy', AssignedBuddyViewSet)
+router.register(r'assignedbuddylog', AssignedBuddyLogViewSet)
+router.register(r'buddyrating', BuddyRatingViewSet)
+
+#Gameinfo Router
+
+router.register(r'gamedetails', DetailsViewSet)
+router.register(r'gametype', TypeViewSet)
+router.register(r'gamelevel', LevelViewSet)
+router.register(r'gameday', DayViewSet)
+
+
+#Package Router
+
+router.register(r'package', PackageViewSet)
+
+#Venue Router
+
+router.register(r'venue', VenueDetailsViewSet)
+router.register(r'venuegames', VenueGamesAvailableViewSet)
+
+
 
 
 
@@ -54,8 +103,9 @@ from rest_framework import routers
 
 
 urlpatterns = [
+    url(r'^admin/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-     url(r'^playgameslotdetails/', PlaygameslotViewSet, name='playgameslotdetails'),
+
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^fixture/', include('fixture.urls'))
+
 ]

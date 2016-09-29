@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from buddy.models import BuddyDetails
+from buddy.models import Buddy,Role
 
-class BuddyDetailsSerialize(serializers.ModelSerializer):
+class BuddyDetailsSerializer(serializers.ModelSerializer):
     class Meta :
-        model = BuddyDetails
+        model = Buddy
         fields = ('id','buddyname','buddyemail','buddycell',)
+
+
+class RoleSerializer(serializers.ModelSerializer):
+    class Meta :
+        model = Role
