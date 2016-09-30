@@ -1,3 +1,9 @@
+
+
 from django.contrib import admin
 
-# Register your models here.
+from .models import Role,Buddy,BuddyRating
+
+admin.site.register(Role)
+admin.site.register(Buddy)
+admin.site.register(BuddyRating)

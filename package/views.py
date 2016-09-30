@@ -10,7 +10,7 @@ from rest_framework import serializers, viewsets
 
 # ViewSets define the view behavior.
 class PackageViewSet(viewsets.ModelViewSet):
-    queryset = Package.objects.all()
+    queryset = Package.objects.filter(id=1)
     serializer_class = PackageSerializer
 
 

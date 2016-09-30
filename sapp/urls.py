@@ -19,10 +19,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from area.views import AreaViewSet
-from booking.views import LogViewSet,FootballPlayProgressViewSet,FootballImproveProgressViewSet
-from buddy.views import BuddyViewSet,RoleViewSet
+from booking.views import BookingLogViewSet,FootballPlayProgressViewSet,FootballImproveProgressViewSet
+from buddy.views import BuddyViewSet,RoleViewSet,BuddyRatingViewSet
 from customer.views import CustomerViewSet,CustomerLogViewSet,GamePreferenceViewSet,SubscriptionViewSet,GameLevelViewSet
-from fixture.views import FixtureViewSet,BuddyAuditViewSet,AssignedBuddyViewSet,AssignedBuddyLogViewSet,BuddyRatingViewSet
+from fixture.views import FixtureViewSet,BuddyAuditViewSet,AssignedBuddyViewSet,AssignedBuddyLogViewSet
 from gameinfo.views import DetailsViewSet,TypeViewSet,LevelViewSet,DayViewSet
 from package.views import PackageViewSet
 from venue.views import VenueDetailsViewSet,VenueGamesAvailableViewSet
@@ -45,7 +45,7 @@ router.register(r'area', AreaViewSet)
 
 #Booking Router
 
-router.register(r'log', LogViewSet)
+router.register(r'log', BookingLogViewSet)
 router.register(r'footballplay', FootballPlayProgressViewSet)
 router.register(r'footballimprove', FootballImproveProgressViewSet)
 
@@ -54,6 +54,7 @@ router.register(r'footballimprove', FootballImproveProgressViewSet)
 
 router.register(r'buddy', BuddyViewSet)
 router.register(r'role', RoleViewSet)
+router.register(r'buddyrating', BuddyRatingViewSet)
 
 
 
@@ -74,7 +75,7 @@ router.register(r'fixture', FixtureViewSet)
 router.register(r'buddyaudit', BuddyAuditViewSet)
 router.register(r'assignedbuddy', AssignedBuddyViewSet)
 router.register(r'assignedbuddylog', AssignedBuddyLogViewSet)
-router.register(r'buddyrating', BuddyRatingViewSet)
+
 
 #Gameinfo Router
 
@@ -103,7 +104,7 @@ router.register(r'venuegames', VenueGamesAvailableViewSet)
 
 
 urlpatterns = [
-    url(r'^admin/', include(router.urls)),
+    url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
 
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

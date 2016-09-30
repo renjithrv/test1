@@ -1,3 +1,10 @@
+
+
 from django.contrib import admin
 
-# Register your models here.
+from .models import Details,Type,Level,Day
+
+admin.site.register(Details)
+admin.site.register(Type)
+admin.site.register(Level)
+admin.site.register(Day)

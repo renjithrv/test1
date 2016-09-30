@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from buddy.models import Buddy,Role
-from buddy.serializers import BuddyDetailsSerializer,RoleSerializer
+from buddy.models import Buddy,Role,BuddyRating
+from buddy.serializers import BuddyDetailsSerializer,RoleSerializer,BuddyRatingSerializer
 
 
 
@@ -20,6 +20,16 @@ class BuddyViewSet(viewsets.ModelViewSet):
 class RoleViewSet(viewsets.ModelViewSet):
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
+
+
+# ViewSets define the view behavior.
+class BuddyRatingViewSet(viewsets.ModelViewSet):
+    queryset = BuddyRating.objects.all()
+    serializer_class = BuddyRatingSerializer
+
+
+
+
 
 
 

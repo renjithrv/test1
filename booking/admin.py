@@ -1,3 +1,9 @@
+
+
 from django.contrib import admin
 
-# Register your models here.
+from .models import BookingLog,FootballImproveProgress,FootballPlayProgress
+
+admin.site.register(BookingLog)
+admin.site.register(FootballImproveProgress)
+admin.site.register(FootballPlayProgress)

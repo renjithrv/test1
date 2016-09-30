@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from fixture.models import Fixture,BuddyAudit,AssignedBuddy,AssignedBuddyLog,BuddyRating
-from fixture.serializers import FixtureSerializer,BuddyAuditSerializer,AssignedBuddySerializer,AssignedBuddyLogSerializer,BuddyRatingSerializer
+from fixture.models import Fixture,BuddyAudit,AssignedBuddy,AssignedBuddyLog
+from fixture.serializers import FixtureSerializer,BuddyAuditSerializer,AssignedBuddySerializer,AssignedBuddyLogSerializer
 
 
 
@@ -35,10 +35,7 @@ class AssignedBuddyLogViewSet(viewsets.ModelViewSet):
     serializer_class = AssignedBuddyLogSerializer
 
 
-# ViewSets define the view behavior.
-class BuddyRatingViewSet(viewsets.ModelViewSet):
-    queryset = BuddyRating.objects.all()
-    serializer_class = BuddyRatingSerializer
+
 
 
 

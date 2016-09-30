@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'jq_fjcu+i%8ngfh*f01a3=1ry&jae68!xa)&x6#ghf-r7qq2p$'
+SECRET_KEY = 'jq_fjcu+i%8ngfh*f01a3`=1ry&jae68!xa)&x6#ghf-r7qq2p$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = {
+INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,16 +42,14 @@ INSTALLED_APPS = {
     'booking',
     'buddy',
     'customer',
-    'drill',
     'fixture',
     'gameinfo',
     'package',
-    'theme',
     'venue',
     'corsheaders',
-}
+)
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,7 +59,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-]
+)
 
 ROOT_URLCONF = 'sapp.urls'
 
@@ -90,8 +88,8 @@ WSGI_APPLICATION = 'sapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sporthood_test',
-        'USER': 'shooduser',
+        'NAME': 'sporthood',
+        'USER': 'hooduser',
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
@@ -103,7 +101,7 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
      'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+       # 'rest_framework.permissions.IsAuthenticated',
     ]
 }
 
@@ -173,4 +171,4 @@ CORS_ALLOW_HEADERS = (
 # CORS_EXPOSE_HEADERS = ()
 # CORS_PREFLIGHT_MAX_AGE = 86400
 CORS_ALLOW_CREDENTIALS = True
-CSRF_COOKIE_SECURE = True
+

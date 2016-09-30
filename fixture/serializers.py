@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from fixture.models import Fixture, BuddyAudit, AssignedBuddy, AssignedBuddyLog, BuddyRating
+from fixture.models import Fixture, BuddyAudit, AssignedBuddy, AssignedBuddyLog
 
 
 class FixtureSerializer(serializers.ModelSerializer):
@@ -24,8 +24,6 @@ class AssignedBuddyLogSerializer(serializers.ModelSerializer):
         model = AssignedBuddyLog
 
 
-class BuddyRatingSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = BuddyRating
+
 
 

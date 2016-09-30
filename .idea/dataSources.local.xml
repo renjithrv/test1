@@ -8,7 +8,7 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <user-name>shooduser</user-name>
       <user-password>dfdadfcbdfd9dfd9dfdddfc5dfd8dfce</user-password>
-      <introspection-scope>sporthood_test:public,pg_catalog,shooduser</introspection-scope>
+      <introspection-scope>sporthood_test:pg_catalog,public,shooduser</introspection-scope>
       <resolve-scope>sporthood_test:public,shooduser</resolve-scope>
     </data-source>
     <data-source name="Django default2" uuid="43b1e068-fbdc-49d5-b866-9e70a3678dbf">
@@ -18,8 +18,18 @@
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <user-name>shooduser</user-name>
       <user-password>dfdadfcbdfd9dfd9dfdddfc5dfd8dfce</user-password>
-      <introspection-scope>sporthood_test:public,pg_catalog,shooduser</introspection-scope>
+      <introspection-scope>sporthood_test:pg_catalog,public,shooduser</introspection-scope>
       <resolve-scope>sporthood_test:public,shooduser</resolve-scope>
+    </data-source>
+    <data-source name="PostgreSQL - sporthood@localhost" uuid="34ced066-df18-4b5c-aa5e-102a9da87a8a">
+      <database-info product="PostgreSQL" version="9.5.3" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>hooduser</user-name>
+      <introspection-scope>sporthood:hooduser,pg_catalog,public</introspection-scope>
+      <resolve-scope>sporthood:hooduser,public</resolve-scope>
     </data-source>
   </component>
 </project>

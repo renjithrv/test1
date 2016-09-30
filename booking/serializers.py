@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from booking.models import Log, FootballPlayProgress, FootballImproveProgress
+from booking.models import BookingLog, FootballPlayProgress, FootballImproveProgress
 
 
 class LogSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Log
+        model = BookingLog
 
 
 class FootballPlayProgressSerializer(serializers.ModelSerializer):

@@ -1,10 +1,9 @@
-from __future__ import unicode_literals
+
 
 from django.db import models
 
-from booking.models import Log
+from booking.models import BookingLog
 from buddy.models import Buddy
-from package.models import Package
 from gameinfo.models import Details,Day,Type,Level
 from area.models import LogicalArea
 from venue.models import VenueDetails,VenueGamesAvailable
@@ -27,6 +26,7 @@ class Fixture(models.Model):
     flexibatchstarttime = models.DurationField()
     generalcutofftime = models.DurationField()
     gameversion = models.IntegerField()
+    gamedescription = models.CharField(max_length=250)
     is_deleted = models.BooleanField()
 
 
@@ -36,41 +36,24 @@ class BuddyAudit(models.Model):
     buddy = models.ForeignKey(Buddy)
     starttime = models.TimeField(auto_now=False)
     endtime = models.TimeField(auto_now=False)
-    startlatitude = models.DecimalField(max_digits=10, max_length=8)
-    startlongitude = models.DecimalField(max_digits=11, max_length=8)
-    endlatitude = models.DecimalField(max_digits=10, max_length=8)
-    endlongitude = models.DecimalField(max_digits=11, max_length=8)
+    startlatitude = models.DecimalField(decimal_places= 8,max_digits=10, max_length=8)
+    startlongitude = models.DecimalField(decimal_places= 8,max_digits=11, max_length=8)
+    endlatitude = models.DecimalField(decimal_places= 8,max_digits=10, max_length=8)
+    endlongitude = models.DecimalField(decimal_places= 8,max_digits=11, max_length=8)
 
 class AssignedBuddy(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     fixture = models.ForeignKey(Fixture)
-    buddy = models.ForeignKey(Buddy)
-    tempbuddy = models.ForeignKey(Buddy)
+    buddy = models.ForeignKey(Buddy,related_name='buddy')
+    tempbuddy = models.ForeignKey(Buddy,related_name='tempbuddy')
 
 class AssignedBuddyLog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    bookingid = models.ForeignKey(Log)
+    bookingid = models.ForeignKey(BookingLog)
     fixture = models.ForeignKey(Fixture)
     buddy = models.ForeignKey(Buddy)
     teamname = models.CharField(max_length=50)
     ratingflag = models.BooleanField()
 
-class BuddyRating(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    bookingid = models.ForeignKey(Log)
-    sessionrating = models.IntegerField()
-    timemanagement = models.BooleanField()
-    warmup = models.BooleanField()
-    matchquality = models.BooleanField()
-    sessionissues = models.BooleanField()
-    sessioncomments = models.TextField()
-    buddy = models.ForeignKey(Buddy)
-    buddyrating = models.IntegerField()
-    communication = models.BooleanField()
-    attire = models.BooleanField()
-    gameknowledge = models.BooleanField()
-    buddyissue = models.BooleanField()
-    buddycomments = models.TextField()
