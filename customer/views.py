@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from customer.models import Customer,CustomerLog,GamePreference,Subscription,GameLevel
-from customer.serializers import CustomerSerializer,CustomerLogSerializer,GamePreferenceSerializer,SubscriptionSerializer,GameLevelSerializer
+from customer.models import Customer,CustomerLog,GamePreference,GameLevel
+from customer.serializers import CustomerSerializer,CustomerLogSerializer,GamePreferenceSerializer,GameLevelSerializer
 
 
 
@@ -27,12 +27,6 @@ class GamePreferenceViewSet(viewsets.ModelViewSet):
     queryset = GamePreference.objects.all()
     serializer_class = GamePreferenceSerializer
 
-
-
-# ViewSets define the view behavior.
-class SubscriptionViewSet(viewsets.ModelViewSet):
-    queryset = Subscription.objects.all()
-    serializer_class = SubscriptionSerializer
 
 
 # ViewSets define the view behavior.

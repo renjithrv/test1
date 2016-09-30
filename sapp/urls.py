@@ -21,10 +21,11 @@ from django.contrib import admin
 from area.views import AreaViewSet
 from booking.views import BookingLogViewSet,FootballPlayProgressViewSet,FootballImproveProgressViewSet
 from buddy.views import BuddyViewSet,RoleViewSet,BuddyRatingViewSet
-from customer.views import CustomerViewSet,CustomerLogViewSet,GamePreferenceViewSet,SubscriptionViewSet,GameLevelViewSet
+from customer.views import CustomerViewSet,CustomerLogViewSet,GamePreferenceViewSet,GameLevelViewSet
 from fixture.views import FixtureViewSet,BuddyAuditViewSet,AssignedBuddyViewSet,AssignedBuddyLogViewSet
 from gameinfo.views import DetailsViewSet,TypeViewSet,LevelViewSet,DayViewSet
 from package.views import PackageViewSet
+from subscription.views import SubscriptionViewSet
 from venue.views import VenueDetailsViewSet,VenueGamesAvailableViewSet
 
 
@@ -63,7 +64,6 @@ router.register(r'buddyrating', BuddyRatingViewSet)
 router.register(r'customer', CustomerViewSet)
 router.register(r'customerlog', CustomerLogViewSet)
 router.register(r'customerpreference', GamePreferenceViewSet)
-router.register(r'customersubscription', SubscriptionViewSet)
 router.register(r'customergamelevel', GameLevelViewSet)
 
 
@@ -95,7 +95,9 @@ router.register(r'venue', VenueDetailsViewSet)
 router.register(r'venuegames', VenueGamesAvailableViewSet)
 
 
+#Subscription Router
 
+router.register(r'customersubscription', SubscriptionViewSet)
 
 
 

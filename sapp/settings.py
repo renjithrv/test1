@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'fixture',
     'gameinfo',
     'package',
+    'subscription',
     'venue',
     'corsheaders',
 )
