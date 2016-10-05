@@ -19,12 +19,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from area.views import AreaViewSet
-from booking.views import BookingLogViewSet,FootballPlayProgressViewSet,FootballImproveProgressViewSet
+from booking.views import BookingLogViewSet,FootballPlayProgressViewSet,FootballImproveProgressViewSet,TopForwardViewSet,TopDefenderViewSet,TopMidfieldViewSet
 from buddy.views import BuddyViewSet,RoleViewSet,BuddyRatingViewSet
 from customer.views import CustomerViewSet,CustomerLogViewSet,GamePreferenceViewSet,GameLevelViewSet
 from fixture.views import FixtureViewSet,BuddyAuditViewSet,AssignedBuddyViewSet,AssignedBuddyLogViewSet
-from gameinfo.views import DetailsViewSet,TypeViewSet,LevelViewSet,DayViewSet
+from gameinfo.views import DetailsViewSet,TypeViewSet,LevelViewSet,DayViewSet,PositionViewSet
+from leads.views import LeadDetailsViewSet
 from package.views import PackageViewSet
+from payment.views import PaymentDetailsViewSet
 from subscription.views import SubscriptionViewSet
 from venue.views import VenueDetailsViewSet,VenueGamesAvailableViewSet
 
@@ -49,6 +51,12 @@ router.register(r'area', AreaViewSet)
 router.register(r'log', BookingLogViewSet)
 router.register(r'footballplay', FootballPlayProgressViewSet)
 router.register(r'footballimprove', FootballImproveProgressViewSet)
+
+router.register(r'forward', TopForwardViewSet)
+router.register(r'defender', TopDefenderViewSet)
+router.register(r'midfield', TopMidfieldViewSet)
+
+
 
 
 #Buddy Router
@@ -83,6 +91,12 @@ router.register(r'gamedetails', DetailsViewSet)
 router.register(r'gametype', TypeViewSet)
 router.register(r'gamelevel', LevelViewSet)
 router.register(r'gameday', DayViewSet)
+router.register(r'gameposition', PositionViewSet)
+
+
+#Leads Router
+
+router.register(r'leads', LeadDetailsViewSet)
 
 
 #Package Router
@@ -93,6 +107,12 @@ router.register(r'package', PackageViewSet)
 
 router.register(r'venue', VenueDetailsViewSet)
 router.register(r'venuegames', VenueGamesAvailableViewSet)
+
+
+#Payment Router
+
+router.register(r'payment', PaymentDetailsViewSet)
+
 
 
 #Subscription Router

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from gameinfo.models import Details, Type, Level, Day
+from gameinfo.models import Details, Type, Level, Day, Position
 
 
 class DetailsSerializer(serializers.ModelSerializer):
@@ -23,6 +23,11 @@ class DaySerializer(serializers.ModelSerializer):
     class Meta:
         model = Day
 
+
+
+class PositionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Position
 
 
 

@@ -44,7 +44,9 @@ INSTALLED_APPS = (
     'customer',
     'fixture',
     'gameinfo',
+    'leads',
     'package',
+    'payment',
     'subscription',
     'venue',
     'corsheaders',
@@ -89,7 +91,7 @@ WSGI_APPLICATION = 'sapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sporthood',
+        'NAME': 'sporthood_linode_prod',
         'USER': 'hooduser',
         'PASSWORD': 'password',
         'HOST': 'localhost',
@@ -102,7 +104,7 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
      'DEFAULT_PERMISSION_CLASSES': [
-       # 'rest_framework.permissions.IsAuthenticated',
+       'rest_framework.permissions.IsAuthenticated',
     ]
 }
 

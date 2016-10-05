@@ -2,8 +2,8 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from gameinfo.models import Details,Type,Level,Day
-from gameinfo.serializers import DetailsSerializer,TypeSerializer,LevelSerializer,DaySerializer
+from gameinfo.models import Details,Type,Level,Day,Position
+from gameinfo.serializers import DetailsSerializer,TypeSerializer,LevelSerializer,DaySerializer,PositionSerializer
 
 
 
@@ -34,6 +34,11 @@ class DayViewSet(viewsets.ModelViewSet):
     queryset = Day.objects.all()
     serializer_class = DaySerializer
 
+
+# ViewSets define the view behavior.
+class PositionViewSet(viewsets.ModelViewSet):
+    queryset = Position.objects.all()
+    serializer_class = PositionSerializer
 
 
 

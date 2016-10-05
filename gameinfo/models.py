@@ -23,3 +23,16 @@ class Day(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     dayname = models.CharField(max_length=100)
 
+
+class Position(models.Model):
+    POSITION_CHOICES = (('NONE', 'None'),('FORWARD', 'Forward'), ('DEFENDER', 'Defender'), ('GOALKEEPER', 'Goalkeeper'), ('MIDFIELDER', 'Midfielder'))
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    position = models.CharField(max_length=100,choices=POSITION_CHOICES, default='NONE')
+    gamedetails = models.ForeignKey(Details)
+
+
+
+
+
+

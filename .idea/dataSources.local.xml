@@ -31,5 +31,15 @@
       <introspection-scope>sporthood:hooduser,pg_catalog,public</introspection-scope>
       <resolve-scope>sporthood:hooduser,public</resolve-scope>
     </data-source>
+    <data-source name="PostgreSQL - sporthood_linode_prod@localhost" uuid="96940dc3-c329-40c9-85cb-9c049b2e10ad">
+      <database-info product="PostgreSQL" version="9.5.3" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>hooduser</user-name>
+      <introspection-scope>sporthood_linode_prod:hooduser,pg_catalog,public</introspection-scope>
+      <resolve-scope>sporthood_linode_prod:hooduser,public</resolve-scope>
+    </data-source>
   </component>
 </project>
